@@ -1,0 +1,1 @@
+Text for Knutt Morris Pratt and Boyer Moore string searches. 
