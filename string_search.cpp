@@ -15,7 +15,7 @@
 // function to run KMP string search
 std::vector String_Search::KMP() {
   // vector to store an index of the pattern in the text if found
-  std::vector index;
+  std::vector<int> index;
   int shift = 0;
   int j = 0;
   char last_char;
