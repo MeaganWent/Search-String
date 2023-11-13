@@ -7,7 +7,7 @@ Class String_Search {
   private:
     std::string text;
     std::string pattern;
-    std::vector prefix_val;
+    std::vector<int> prefix_val;
 
   public:
     //function to get text and pattern from the file
@@ -17,7 +17,7 @@ Class String_Search {
     // function to run Boyer Moore string search
 
     // function to run KMP string search
-    std::vector KMP();
+    std::vector<int> KMP();
 
     //helper function for kmp
     void prefix();
