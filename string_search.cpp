@@ -33,7 +33,7 @@ std::vector String_Search::KMP() {
     if(found){
       vector.push_back(shift);
     } else {
-      shift = shift + 1 + prefix[last_char];
+      shift = shift + 1 + prefix_val[last_char];
     }
   }
   
