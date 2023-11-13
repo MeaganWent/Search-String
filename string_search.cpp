@@ -13,7 +13,7 @@
 // function to run Boyer Moore string search
 
 // function to run KMP string search
-std::vector String_Search::KMP() {
+std::vector<int> String_Search::KMP() {
   // vector to store an index of the pattern in the text if found
   std::vector<int> index;
   int shift = 0;
@@ -41,7 +41,7 @@ std::vector String_Search::KMP() {
 };
 
 //helper function for kmp
-void prefix();
+void String_Search::prefix();
 
 // function to output running times
 
