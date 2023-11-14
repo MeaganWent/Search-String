@@ -18,7 +18,7 @@ class String_Search {
     // function to run Boyer Moore string search
 
     // function to run KMP string search
-    std::vector<int> KMP();
+    void KMP();
 
     //helper function for kmp
     void prefix();
