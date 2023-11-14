@@ -83,6 +83,19 @@ void String_Search::prefix() {
   }
 
 }
+// function to get the time stamp of all the search functions and do a graph
+float timeFuntion(){
+    //start point
+    //call funtions
+        // string search 
+            //start and end 
+        //BM search
+            //start and end
+        //KMP search 
+            //start and end
+    //end point
+    
+}
 
 // function to output running times
 
