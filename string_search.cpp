@@ -53,12 +53,12 @@ void String_Search::prefix() {
   int length = 0;
   for(int j = 0; j < pattern.length();j++){
     // a shift is possible
-    if(pattern[length] == pattern[i]) {
+    if(pattern[length] == pattern[j]) {
       length += 1;
-      prefix_val[i] = length;
+      prefix_val[j] = length;
     }
     // a shift is not possible
-    if(pattern[length] != pattern[i] && length != 0) {
+    if(pattern[length] != pattern[j] && length != 0) {
       length = prefix_val[length - 1];
     }
   }
