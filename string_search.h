@@ -8,6 +8,7 @@ class String_Search {
     std::string text;
     std::string pattern;
     std::vector<int> prefix_val;
+    std::vector<int> KMP_index;
 
   public:
     //function to get text and pattern from the file
