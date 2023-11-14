@@ -16,8 +16,8 @@
 
 int main(int argc,char*argv[]){
   // get file names from user
-  std::string text_name(argv[1];
-  std::string pattern_name(argv[2];
+  std::string text_name(argv[1]);
+  std::string pattern_name(argv[2]);
 
   //function to get text and pattern from the file
 

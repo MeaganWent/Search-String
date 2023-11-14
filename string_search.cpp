@@ -31,7 +31,7 @@ std::vector<int> String_Search::KMP() {
       
     }
     if(found){
-      vector.push_back(shift);
+      index.push_back(shift);
     } else {
       shift = shift + 1 + prefix_val[last_char];
     }
@@ -41,7 +41,9 @@ std::vector<int> String_Search::KMP() {
 };
 
 //helper function for kmp
-void String_Search::prefix();
+void String_Search::prefix() {
+
+};
 
 // function to output running times
 

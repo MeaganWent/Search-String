@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-Class String_Search {
+class String_Search {
   private:
     std::string text;
     std::string pattern;
