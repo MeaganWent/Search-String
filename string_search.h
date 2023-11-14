@@ -13,7 +13,7 @@ class String_Search {
     //function to get text and pattern from the file
 
     //function to run string search
-
+    // std::vector<int> Basic();
     // function to run Boyer Moore string search
 
     // function to run KMP string search
