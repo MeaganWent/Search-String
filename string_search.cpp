@@ -19,16 +19,18 @@ std::vector<int> String_Search::KMP() {
   int shift = 0;
   int j = 0;
   char last_char;
-
+  // goes through entire text but not always by a shift of one
   while(shift < text.length() - pattern.length()) {
     j = shift;
     bool found = false;
+    // checks each character in the pattern to make sure all match
     while(text[j] == pattern[j] && j < pattern.length()) {
-      j++;
+      last_char = pattern[j];
+      // end of pattern is reached so match was found
       if(j = pattern.length()){
         found = true;
       }
-      
+      j++;
     }
     if(found){
       index.push_back(shift);
@@ -38,12 +40,16 @@ std::vector<int> String_Search::KMP() {
   }
   
   return index;
-};
+}
 
-//helper function for kmp
+//helper function for kmp to create a vector for looking up num of shifts based on the character
 void String_Search::prefix() {
+  // goes through each character to get the prefix to see how many shifts can be skipped
+  for(int i = 0; i < pattern.length(); i++) {
+    
+  }
 
-};
+}
 
 // function to output running times
 
