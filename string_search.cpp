@@ -44,9 +44,23 @@ std::vector<int> String_Search::KMP() {
 
 //helper function for kmp to create a vector for looking up num of shifts based on the character
 void String_Search::prefix() {
-  // goes through each character to get the prefix to see how many shifts can be skipped
+  // initialize vector of length pattern to 0's
   for(int i = 0; i < pattern.length(); i++) {
-    
+    prefix_val.push_back(0);
+  }
+
+  // goes through pattern to find number of shifts possible
+  int length = 0;
+  for(int j = 0; j < pattern.length();j++){
+    // a shift is possible
+    if(pattern[length] == pattern[i]) {
+      length += 1;
+      prefix_val[i] = length;
+    }
+    // a shift is not possible
+    if(pattern[length] != pattern[i] && length != 0) {
+      length = prefix_val[length - 1];
+    }
   }
 
 }
