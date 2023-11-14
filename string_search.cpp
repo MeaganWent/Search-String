@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <ctime>
 
 
 //function to get text and pattern from the file
@@ -94,7 +95,9 @@ float timeFuntion(){
         //KMP search 
             //start and end
     //end point
-    
+
+    //get the runtime
+    float output = 1.0 * (c_end - c_start) 
 }
 
 // function to output running times
