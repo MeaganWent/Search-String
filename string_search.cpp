@@ -9,6 +9,16 @@
 //function to get text and pattern from the file
 
 //function to run string search
+// PseudoCode
+// Function StringSearch::Basic(str, answer)
+    // Initiate Variable count = 0
+    // For the length of the str (i)
+        // For the length of the answer (j)
+            // If the answer at j is not equal to the str at j
+                // Break
+            // If we are at the end of the loop and never broke out
+                // Increment counter
+    // Return counter
 
 // function to run Boyer Moore string search
 
