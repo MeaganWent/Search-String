@@ -24,11 +24,10 @@ int main(int argc,char*argv[]){
   //function to run string search
   
   // std::vector<int> Basic_indexes = search.Basic();
-  // function to run Boyer Moore string search
-  std::vector<float> timeStamps;
-  timeStamps = timeFuntion();
-  // function to run KMP string search
-  //std::vector<int> KMP_indexes = search.KMP();
+
+  // function to search string called in time function
+  //std::vector<float> timeStamps;
+  //timeStamps = search.timeFuntion();
 
   // function to output running times
 
