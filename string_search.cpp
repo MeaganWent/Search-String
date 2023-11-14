@@ -24,10 +24,9 @@
 // function to run Boyer Moore string search
 
 // function to run KMP string search
-std::vector<int> String_Search::KMP() {
+void String_Search::KMP() {
     
   // vector to store an index of the pattern in the text if found
-  std::vector<int> index;
   int shift = 0;
   int j = 0;
   char last_char;
@@ -48,7 +47,7 @@ std::vector<int> String_Search::KMP() {
     }
     // determines if a shift should be called from lookup or if a match was found
     if(found){
-      index.push_back(shift);
+      KMP_index.push_back(shift);
       shift += 1;
     } else {
       shift = shift + 1 + prefix_val[last_char];
@@ -56,7 +55,6 @@ std::vector<int> String_Search::KMP() {
   }
 
   // returns all the index(es) where a match was found
-  return index;
 }
 
 //helper function for kmp to create a vector for looking up num of shifts based on the character
