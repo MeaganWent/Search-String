@@ -95,7 +95,7 @@ float timeFuntion(){
     //end point
 
     //get the runtime
-    float output = 1.0 * (c_end - c_start) 
+    float output = 1.0 * (c_end - c_start);
 }
 
 // function to output running times
