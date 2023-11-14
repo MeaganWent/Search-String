@@ -26,6 +26,7 @@ int main(int argc,char*argv[]){
   // function to run Boyer Moore string search
 
   // function to run KMP string search
+  //std::vector<int> KMP_indexes = search.KMP();
 
   // function to output running times
 
