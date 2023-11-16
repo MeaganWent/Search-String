@@ -107,8 +107,8 @@ void String_Search::prefix() {
     }
 }
 
-// function to get the time stamp of all the search functions and do a graph
-float timeFuntion(){
+// function to get the time stamp of all the search functions and do a graph and output
+float String_Search::timeFuntion(){
     //start point
     //call funtions
         // start
