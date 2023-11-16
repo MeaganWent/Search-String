@@ -19,7 +19,8 @@ int main(int argc,char*argv[]){
   std::string text_name(argv[1]);
   std::string pattern_name(argv[2]);
 
-  //function to get text and pattern from the file
+  //function to get text and pattern from the file and store in Class vars
+  String_Search string(text_name, pattern_name);
 
   //function to run string search
   
