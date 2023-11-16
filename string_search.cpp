@@ -8,6 +8,27 @@
 
 
 //function to get text and pattern from the file
+void String_Search::String_Search(std::string text_file, std::string pattern_file) {
+    std::string line;
+    ifstream infile;
+    infile.open(text_file);
+    // get data from the file and store in vector
+    while(getline(infile, line)) {
+        text += line;
+    }
+    // close the file
+    infile.close();
+
+    ifstream infile;
+    infile.open(pattern_file);
+    // get data from the file and store in vector
+    while(getline(infile, line)) {
+        pattern += line;
+    }
+    // close the file
+    infile.close();
+
+}
 
 //function to run string search
 // PseudoCode
