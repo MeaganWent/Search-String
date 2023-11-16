@@ -52,76 +52,78 @@ void String_Search::String_Search(std::string text_file, std::string pattern_fil
 // function to run KMP string search
 void String_Search::KMP() {
     
-  // vector to store an index of the pattern in the text if found
-  int shift = 0;
-  int j = 0;
-  char last_char;
+    // vector to store an index of the pattern in the text if found
+    int shift = 0;
+    int pattern_idx = 0;
+    char last_char;
   
-  // goes through entire text but not always by a shift of one
-  while(shift < text.length() - pattern.length()) {
-    j = shift;
-    bool found = false;
+    // goes through entire text but not always by a shift of one
+    while(shift < text.length() - pattern.length()) {
+        pattern_idx = shift;
+        bool found = false;
     
-    // checks each character in the pattern to make sure all match
-    while(text[j] == pattern[j] && j < pattern.length()) {
-      last_char = pattern[j];
-      // end of the pattern is reached so the match was found
-      if(j = pattern.length()){
-        found = true;
-      }
-      j++;
+        // checks each character in the pattern to make sure all match
+        while(text[pattern_idx] == pattern[pattern_idx] && pattern_idx < pattern.length()) {
+            last_char = pattern[pattern_idx];
+            
+            // end of the pattern is reached so the match was found
+            if(pattern_idx = pattern.length()){
+                found = true;
+            }
+            // increment counter
+            pattern_idx++;
+        }
+      
+        // determines if a shift should be called from lookup or if a match was found
+        if(found){
+            KMP_index.push_back(shift);
+            shift += 1;
+        } else {
+            shift = shift + 1 + prefix_val[last_char];
+        }
     }
-    // determines if a shift should be called from lookup or if a match was found
-    if(found){
-      KMP_index.push_back(shift);
-      shift += 1;
-    } else {
-      shift = shift + 1 + prefix_val[last_char];
-    }
-  }
-
-  // returns all the index(es) where a match was found
 }
 
 //helper function for kmp to create a vector for looking up num of shifts based on the character
 void String_Search::prefix() {
   
-  // initialize vector of length pattern to 0's
-  for(int i = 0; i < pattern.length(); i++) {
-    prefix_val.push_back(0);
-  }
+    // initialize vector of length pattern to 0's
+    prefix_val.resize(pattern.length(),0);
 
-  // goes through the pattern to find the number of shifts possible to skip
-  int length = 0;
-  for(int j = 0; j < pattern.length();j++){
+    // goes through the pattern to find the number of shifts possible to skip
+    int length = 0;
+    for(int i = 0; j < pattern.length();j++){
     
-    // a shift is possible
-    if(pattern[length] == pattern[j]) {
-      length += 1;
-      prefix_val[j] = length;
+        // a shift is possible
+        if(pattern[length] == pattern[i]) {
+            length += 1;
+            prefix_val[i] = length;
+        }
+        
+        // a shift is not possible
+        if(pattern[length] != pattern[i] && length != 0) {
+            length = prefix_val[length - 1];
+        }
     }
-    
-    // a shift is not possible
-    if(pattern[length] != pattern[j] && length != 0) {
-      length = prefix_val[length - 1];
-    }
-  }
-
 }
+
 // function to get the time stamp of all the search functions and do a graph
 float timeFuntion(){
     //start point
     //call funtions
-        // string search 
-            //start and end 
-        //BM search
-            //start and end
-        //KMP search 
-            //start and end
+        // start
+    // string search 
+        // end 
+        //start
+    //BM search
+        // end
+        //start
+    //KMP search 
+        //end
     //end point
 
     //get the runtime
-    float output = 1.0 * (c_end - c_start);
+    //float output = 1.0 * (c_end - c_start);
 }
 
 // function to output running times
