@@ -12,7 +12,7 @@ class String_Search {
 
   public:
     //function to get text and pattern from the file
-    String_Search(
+    String_Search(std::string text, std::string pattern);
 
     //function to run string search
     // std::vector<int> Basic();
