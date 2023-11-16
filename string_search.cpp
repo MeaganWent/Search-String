@@ -9,19 +9,24 @@
 
 //function to get text and pattern from the file
 void String_Search::String_Search(std::string text_file, std::string pattern_file) {
+    // store text in Class string
     std::string line;
     ifstream infile;
     infile.open(text_file);
-    // get data from the file and store in vector
+
+    // get data from file and store it
     while(getline(infile, line)) {
         text += line;
     }
+    
     // close the file
     infile.close();
 
+    // store pattern in Class string
     ifstream infile;
     infile.open(pattern_file);
-    // get data from the file and store in vector
+    
+    // get data from the file and store it
     while(getline(infile, line)) {
         pattern += line;
     }
