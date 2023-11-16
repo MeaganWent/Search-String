@@ -5,8 +5,8 @@
 
 class String_Search {
   private:
-    std::string text;
-    std::string pattern;
+    std::string text = "";
+    std::string pattern = "";
     std::vector<int> prefix_val;
     std::vector<int> KMP_index;
 
