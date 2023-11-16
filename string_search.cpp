@@ -84,25 +84,25 @@ void String_Search::KMP() {
     }
 }
 
-//helper function for kmp to create a vector for looking up num of shifts based on the character
+//helper function for kmp string search to create a vector for looking up num of shifts based on the character
 void String_Search::prefix() {
-  
-    // initialize vector of length pattern to 0's
-    prefix_val.resize(pattern.length(),0);
-
-    // goes through the pattern to find the number of shifts possible to skip
-    int length = 0;
-    for(int i = 0; i < pattern.length();i++){
     
+    // initialize vector of length pattern to 0's and set length to 0
+    prefix_val.resize(pattern.length(),0);
+    int length = 0;
+    
+    // goes through the pattern to find the number of shifts possible to skip
+    for(int i = 1; i < pattern.length();i++){
+
         // a shift is possible
         if(pattern[length] == pattern[i]) {
             length += 1;
             prefix_val[i] = length;
-        }
-        
-        // a shift is not possible
-        if(pattern[length] != pattern[i] && length != 0) {
+
+        // shift is not possible
+        }else if(pattern[length] != pattern[i] && length != 0) {
             length = prefix_val[length - 1];
+            i -= 1;
         }
     }
 }
