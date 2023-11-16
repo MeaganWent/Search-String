@@ -6,9 +6,9 @@
 #include <fstream>
 #include <ctime>
 
-
+using namespace std;
 //function to get text and pattern from the file
-void String_Search::String_Search(std::string text_file, std::string pattern_file) {
+String_Search::String_Search(std::string text_file, std::string pattern_file) {
     // store text in Class string
     std::string line;
     ifstream infile;
@@ -23,15 +23,15 @@ void String_Search::String_Search(std::string text_file, std::string pattern_fil
     infile.close();
 
     // store pattern in Class string
-    ifstream infile;
-    infile.open(pattern_file);
+    ifstream infile_2;
+    infile_2.open(pattern_file);
     
     // get data from the file and store it
-    while(getline(infile, line)) {
+    while(getline(infile_2, line)) {
         pattern += line;
     }
     // close the file
-    infile.close();
+    infile_2.close();
 
 }
 
@@ -92,7 +92,7 @@ void String_Search::prefix() {
 
     // goes through the pattern to find the number of shifts possible to skip
     int length = 0;
-    for(int i = 0; j < pattern.length();j++){
+    for(int i = 0; i < pattern.length();i++){
     
         // a shift is possible
         if(pattern[length] == pattern[i]) {
@@ -124,6 +124,7 @@ float timeFuntion(){
 
     //get the runtime
     //float output = 1.0 * (c_end - c_start);
+    return 0;
 }
 
 // function to output running times
