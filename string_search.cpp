@@ -52,34 +52,38 @@ String_Search::String_Search(std::string text_file, std::string pattern_file) {
 // function to run KMP string search
 void String_Search::KMP() {
     
-    // vector to store an index of the pattern in the text if found
+    // initialize vars for indexing
     int shift = 0;
     int pattern_idx = 0;
-    char last_char;
   
-    // goes through entire text but not always by a shift of one
-    while(shift < text.length() - pattern.length()) {
-        pattern_idx = shift;
+    // goes through the entire text but not always by a shift of one
+    while(shift < text.size()) {
         bool found = false;
     
         // checks each character in the pattern to make sure all match
-        while(text[pattern_idx] == pattern[pattern_idx] && pattern_idx < pattern.length()) {
-            last_char = pattern[pattern_idx];
-            
-            // end of the pattern is reached so the match was found
-            if(pattern_idx = pattern.length()){
-                found = true;
-            }
+        if(text[shift]==pattern[pattern_idx] && pattern_idx < pattern.size()) {
             // increment counter
-            pattern_idx++;
+            pattern_idx += 1;
+            shift += 1;
+        }
+
+        // end of the pattern is reached so the match was found
+        if(pattern_idx = pattern.size()){
+            found = true;
         }
       
         // determines if a shift should be called from lookup or if a match was found
         if(found){
             KMP_index.push_back(shift);
-            shift += 1;
-        } else {
-            shift = shift + 1 + prefix_val[last_char];
+            pattern_idx = prefix_val[pattern_idx-1];
+        } else if(text[shift] != pattern[pattern_idx] && shift < text.size()) {
+            // get new index to check for the pattern
+            if(pattern_idx != 0) {
+                pattern_idx = prefix_val[pattern_idx-1];
+            } else {
+                // increment shift
+                shift += 1;
+            }  
         }
     }
 }
