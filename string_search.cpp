@@ -113,6 +113,7 @@ void String_Search::prefix() {
 
 // function to get the time stamp of all the search functions and do a graph and output
 float String_Search::timeFunction(){
+    float num;
     //start point
     //call funtions
         // start
@@ -123,12 +124,13 @@ float String_Search::timeFunction(){
         // end
         //start
     //KMP search 
+    KMP();
         //end
     //end point
 
     //get the runtime
     //float output = 1.0 * (c_end - c_start);
-    return 0;
+    return num;
 }
 
 // function to output running times
