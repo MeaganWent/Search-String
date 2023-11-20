@@ -15,13 +15,16 @@ values and search for its correctly value until it finds the correct values for 
 #include <algorithm>
  
 // The preprocessing function for Boyer Moore's bad character heuristic 
-// Reference code give by https://www.geeksforgeeks.org/boyer-moore-algorithm-for-pattern-searching/
 // and https://favtutor.com/blogs/boyer-moore-algorithm
-void badCharHeuristic(std::string str, int size, int badchar[NO_OF_CHARS]) { 
+ 
+// The preprocessing function for Boyer Moore's bad character heuristic 
+// Reference code give by https://www.geeksforgeeks.org/boyer-moore-algorithm-for-pattern-searching/
+void badCharHeuristic(std::string str, int size, int badchar[256]) 
+{ 
     int i; 
  
     // Initialize all occurrences as -1 
-    for (i = 0; i < NO_OF_CHARS; i++) 
+    for (i = 0; i < 256; i++) 
         badchar[i] = -1; 
  
     // Fill the actual value of last occurrence 
@@ -30,39 +33,35 @@ void badCharHeuristic(std::string str, int size, int badchar[NO_OF_CHARS]) {
         badchar[(int) str[i]] = i; 
 } 
  
-
-void search(std::string Search, std::string Find) 
-{ 
-    int search = Search.size(); 
-    int find = Find.size();
+void search( std::string input, std::string pattern) 
+{
+    int badchar[256];
+    badCharHeuristic(pattern, pattern.size(), badchar); 
  
-    int badchar[NO_OF_CHARS]; 
-
-    badCharHeuristic(Find, search, badchar); 
+    int s = 0;   
+    while(s <= (input.size() - pattern.size())) 
+    { 
+        int j = pattern.size() - 1; 
  
-    int shift = 0; 
-    while(shift <= (find - search)) { 
-        int j = search - 1; 
-
-        while(j >= 0 && Find[j] == Search[search + j]) 
+        while(j >= 0 && pattern[j] == input[s + j]) 
             j--; 
  
-
         if (j < 0) 
         { 
-            std::cout << "pattern occurs at shift = " <<  search << std::endl; 
-            shift += (shift + search < find)? search-badchar[Search[shift + search]] : 1; 
-        } 
+            std::cout << "pattern occurs at shift = " <<  s << std::endl; 
+            s += (s + pattern.size() < input.size())? pattern.size()-badchar[input[s + pattern.size()]] : 1; 
  
+        }
         else
-            shift += max(1, j - badchar[Search[shift + j]]); 
+            s += std::max(1, j - badchar[input[s + j]]); 
     } 
 } 
  
-
-int main() { 
-    std::string Search= "ABAAABCD"; 
-    std::string Find = "ABC"; 
-    search(Search, Find); 
+/* Driver code */
+int main() 
+{ 
+    std::string txt= "ABAAABCD"; 
+    std::string pat = "ABC"; 
+    search(txt, pat); 
     return 0; 
-}
+} 
