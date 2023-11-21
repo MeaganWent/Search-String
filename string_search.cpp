@@ -141,7 +141,10 @@ vector <float> String_Search::timeFunction(){
     return total_time;
     
 }
+// function to output String Search results
 
-// function to output running times
+// function to output Boyer Moore results
 
-// function to output if the pattern was found
+// function to output KMP results
+
+// function to output comparisons
