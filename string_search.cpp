@@ -147,6 +147,10 @@ vector <float> String_Search::timeFunction(){
 
 // function to output KMP results
 void KMP_results(float time) {
+    std::ofstream file;
+
+    file.open("KMP-Results.txt");
+    
     // file heading
     file << "Results for the Knutt-Morris-Pratt string search algorithm:" << std::endl;
 
@@ -165,6 +169,8 @@ void KMP_results(float time) {
 
     // state runtime
     file << "The runtime for KMP was: " << time << std::endl;
+
+    file.close();
         
 }
 
