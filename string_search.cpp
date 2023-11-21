@@ -111,12 +111,15 @@ void String_Search::prefix() {
     }
 }
 
+
 // function to get the time stamp of all the search functions and do a graph and output
-float String_Search::timeFunction(){
-    float num;
-    //start point
+vector <float> String_Search::timeFunction(){
+   unsigned long starTime, endTime;
+
     //call funtions
-        // start
+        starTime = clock();
+        KMP();
+        endTime = clock();
     // string search 
         // end 
         //start
@@ -124,13 +127,18 @@ float String_Search::timeFunction(){
         // end
         //start
     //KMP search 
-    KMP();
+    //KMP();
         //end
     //end point
 
     //get the runtime
+    vector<float> total_time;
+    float runtime =1.0 * (endTime - starTime) / CLOCKS_PER_SEC; //why do I need the 1.0 here?
+    total_time.push_back(runtime);
     //float output = 1.0 * (c_end - c_start);
-    return num;
+    cout << std::fixed << std::setprecision(4) << total_time[0] << endl;
+    return total_time;
+    
 }
 
 // function to output running times
