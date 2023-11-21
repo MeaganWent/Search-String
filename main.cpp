@@ -31,7 +31,7 @@ int main(int argc,char*argv[]){
 
   // function to search string called in time function
   std::vector<float> timeStamps;
-  timeStamps = search.timeFuntion();
+  timeStamps = search.timeFunction();
 
   search.KMP_results(timeStamps[0]);
 
