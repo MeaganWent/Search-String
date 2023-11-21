@@ -146,21 +146,22 @@ vector <float> String_Search::timeFunction(){
 // function to output Boyer Moore results
 
 // function to output KMP results
-void KMP_results(float time) {
+void String_Search::KMP_results(float time) {
     std::ofstream file;
 
     file.open("KMP-Results.txt");
     
     // file heading
     file << "Results for the Knutt-Morris-Pratt string search algorithm:" << std::endl;
+    file << std::endl;
 
     // state if pattern was found or not and if so where
     if(KMP_index.size() == 0){
-        file << "pattern was not found in text" << std::endl;
+        file << "The pattern " << pattern << " was not found in the text" << std::endl;
     } else if(KMP_index.size() == 1){
-        file << "pattern was found in text at index " << KMP_index[0] << std::endl;
+        file << "The pattern " << pattern << " was found in the text at index " << KMP_index[0] << std::endl;
     } else {
-        file << "pattern was found in text at indexes ";
+        file << "The pattern " << pattern << " was found in the text at indexes ";
         for(int i = 0; i < KMP_index.size(); i++){
             file << KMP_index[i] << " ";
         }
@@ -168,10 +169,9 @@ void KMP_results(float time) {
     }
 
     // state runtime
-    file << "The runtime for KMP was: " << time << std::endl;
+    file << "The runtime for KMP was: " << std::fixed << std::setprecision(6) << time << std::endl;
 
     file.close();
-        
 }
 
 // function to output comparisons
