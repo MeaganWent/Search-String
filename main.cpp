@@ -30,8 +30,8 @@ int main(int argc,char*argv[]){
   // std::vector<int> Basic_indexes = search.Basic();
 
   // function to search string called in time function
-  //std::vector<float> timeStamps;
-  //timeStamps = search.timeFuntion();
+  std::vector<float> timeStamps;
+  timeStamps = search.timeFuntion();
 
   // function to output running times
 
