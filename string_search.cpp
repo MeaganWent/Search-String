@@ -146,5 +146,19 @@ vector <float> String_Search::timeFunction(){
 // function to output Boyer Moore results
 
 // function to output KMP results
+void KMP_results() {
+    if(KMP_index.size() == 0){
+        file << "pattern was not found in text" << std::endl;
+    } else if(KMP_index.size() == 1){
+        file << "pattern was found in text at index " << KMP_index[0] << std::endl;
+    } else {
+        file << "pattern was found in text at indexes ";
+        for(int i = 0; i < KMP_index.size(); i++){
+            file << KMP_index[i] << " ";
+        }
+        file << std::endl;
+    }
+        
+}
 
 // function to output comparisons
