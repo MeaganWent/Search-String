@@ -68,8 +68,9 @@ void String_Search::KMP() {
         }
 
         // end of the pattern is reached so the match was found
-        if(pattern_idx = pattern.size()){
+        if(pattern_idx == pattern.size()){
             found = true;
+            cout << shift << endl; //testing for runtime
         }
       
         // determines if a shift should be called from lookup or if a match was found
