@@ -5,6 +5,7 @@
 #include <sstream>
 #include <fstream>
 #include <ctime>
+#include <iomanip>
 
 using namespace std;
 //function to get text and pattern from the file
