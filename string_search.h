@@ -27,6 +27,9 @@ class String_Search {
     // function to output running times
      std::vector<float> timeFunction();
 
+    // function for outputing results of KMP
+    void KMP_result(float time);
+
     // function to output if the pattern was found
 };
 
