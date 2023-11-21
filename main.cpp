@@ -33,6 +33,8 @@ int main(int argc,char*argv[]){
   std::vector<float> timeStamps;
   timeStamps = search.timeFuntion();
 
+  search.KMP_results(timeStamps[0]);
+
   // function to output running times
 
   // function to output if the pattern was found
