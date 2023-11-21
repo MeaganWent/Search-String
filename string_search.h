@@ -25,7 +25,7 @@ class String_Search {
     void prefix();
 
     // function to output running times
-    float timeFunction();
+     std::vector<float> timeFunction();
 
     // function to output if the pattern was found
 };
