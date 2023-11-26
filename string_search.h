@@ -17,7 +17,7 @@ class String_Search {
     //function to run string search
     // std::vector<int> Basic();
     // function to run Boyer Moore string search
-
+    void BM();
     // function to run KMP string search
     void KMP();
 
