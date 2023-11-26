@@ -49,7 +49,9 @@ String_Search::String_Search(std::string text_file, std::string pattern_file) {
     // Return vector
 
 // function to run Boyer Moore string search
+void String_Search::KMP() {
 
+}
 // function to run KMP string search
 void String_Search::KMP() {
     
