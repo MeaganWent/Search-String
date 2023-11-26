@@ -50,36 +50,33 @@ String_Search::String_Search(std::string text_file, std::string pattern_file) {
 
 // function to run Boyer Moore string search
     // NOT COMPLETED -- I HAVE TO ADD COMMENTS. 
-void badCharHeuristic(std::string str, int size, int badchar[256]){
+
+void String_Search::BM() {
+    int badchar[256];
     int i; 
     for (i = 0; i < 256; i++) 
         badchar[i] = -1; 
     
-    for (i = 0; i < size; i++) 
-        badchar[(int) str[i]] = i; 
-}
-
-void String_Search::BM() {
-    int badchar[256];
+    for (i = 0; i < pattern.size(); i++) 
+        badchar[(int) pattern[i]] = i; 
         badCharHeuristic(pattern, pattern.size(), badchar); 
      
-        int s = 0;   
-        while(s <= (text.size() - pattern.size())) 
+    int s = 0;   
+    while(s <= (text.size() - pattern.size())) 
+    { 
+        int j = pattern.size() - 1; 
+ 
+        while(j >= 0 && pattern[j] == text[s + j]) 
+            j--; 
+ 
+        if (j < 0) 
         { 
-            int j = pattern.size() - 1; 
-     
-            while(j >= 0 && pattern[j] == text[s + j]) 
-                j--; 
-     
-            if (j < 0) 
-            { 
-                std::cout << "pattern occurs at shift = " <<  s << std::endl; 
-                s += (s + pattern.size() < text.size())? pattern.size()-badchar[text[s + pattern.size()]] : 1; 
-     
-            }
-            else
-                s += std::max(1, j - badchar[text[s + j]]); 
-        } 
+            std::cout << "pattern occurs at shift = " <<  s << std::endl; 
+            s += (s + pattern.size() < text.size())? pattern.size()-badchar[text[s + pattern.size()]] : 1; 
+ 
+        }
+        else
+            s += std::max(1, j - badchar[text[s + j]]); 
     } 
 }
 
