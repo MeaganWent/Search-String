@@ -26,7 +26,7 @@ int main(int argc,char*argv[]){
   search.prefix();
 
   //function to run string search
-  
+  search.BM();
   // std::vector<int> Basic_indexes = search.Basic();
 
   // function to search string called in time function

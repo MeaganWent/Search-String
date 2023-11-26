@@ -59,7 +59,6 @@ void String_Search::BM() {
     
     for (i = 0; i < pattern.size(); i++) 
         badchar[(int) pattern[i]] = i; 
-        badCharHeuristic(pattern, pattern.size(), badchar); 
      
     int s = 0;   
     while(s <= (text.size() - pattern.size())) 
