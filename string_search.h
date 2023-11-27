@@ -9,7 +9,7 @@ class String_Search {
     std::string pattern = "";
     std::vector<int> prefix_val;
     std::vector<int> KMP_index;
-    std::vector<int> BM_index;
+    int BM_index;
 
   public:
     //function to get text and pattern from the file
@@ -31,6 +31,7 @@ class String_Search {
 
     // function for outputing results of KMP
     void KMP_results(float time);
+    void BM_results(float time);
 
     // function to output if the pattern was found
 };

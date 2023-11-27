@@ -27,7 +27,10 @@ int main(int argc,char*argv[]){
 
   //function to run string search
   search.BM();
+  std::vector<float> BM_timeStamps;
+  BM_timeStamps = search.timeFunction();
   // std::vector<int> Basic_indexes = search.Basic();
+  search.BM_results(BM_timeStamps[0]);
 
   // function to search string called in time function
   std::vector<float> timeStamps;
