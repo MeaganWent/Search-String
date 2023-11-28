@@ -52,6 +52,7 @@ String_Search::String_Search(std::string text_file, std::string pattern_file) {
     // NOT COMPLETED -- I HAVE TO ADD COMMENTS. 
 
 void String_Search::BM() {
+    this->BM_index = -1;
     int badchar[256];
     int i; 
     for (i = 0; i < 256; i++) 
@@ -71,6 +72,7 @@ void String_Search::BM() {
         if (j < 0) 
         { 
             std::cout << "pattern occurs at shift = " <<  s << std::endl; 
+            this->BM_index = s + pattern.size(); 
             s += (s + pattern.size() < text.size())? pattern.size()-badchar[text[s + pattern.size()]] : 1; 
  
         }
@@ -145,9 +147,7 @@ void String_Search::prefix() {
 
 // function to get the time stamp of all the search functions and do a graph and output
 vector <float> String_Search::timeFunction(){
-   unsigned long starTime, endTime;
-    vector<float> total_time;
-
+   unsigned long starTime, endTime, starTime_BM, endTime_BM;
     //call funtions
         starTime = clock();
         KMP();
@@ -160,6 +160,9 @@ vector <float> String_Search::timeFunction(){
         //start
     //BM search
         // end
+        starTime_BM = clock();
+        BM();
+        endTime_BM = clock();
         //start
     //KMP search 
     //KMP();
@@ -167,17 +170,43 @@ vector <float> String_Search::timeFunction(){
     //end point
 
     //get the runtime
-    
+    vector<float> total_time;
     float runtime =1.0 * (endTime - starTime) / CLOCKS_PER_SEC; //why do I need the 1.0 here?
     total_time.push_back(runtime);
+    float BMruntime =1.0 * (endTime_BM - starTime_BM) / CLOCKS_PER_SEC;
+    total_time.push_back(BMruntime);
     //float output = 1.0 * (c_end - c_start);
-    cout << std::fixed << std::setprecision(4) << total_time[0] << endl;
+    cout << std::fixed << std::setprecision(4) << total_time[0] << " " << total_time[1] << endl;
     return total_time;
     
 }
 // function to output String Search results
 
 // function to output Boyer Moore results
+
+void String_Search::BM_results(float time) {
+    std::ofstream file;
+
+    file.open("BM-Results.txt");
+    
+    // file heading
+    file << "Results for the Boyer Moore string search algorithm:" << std::endl;
+    file << std::endl;
+
+    // state if pattern was found or not and if so where
+    if(BM_index == -1){
+        file << "The pattern " << pattern << " was not found in the text" << std::endl;
+    } else {
+        file << "The pattern " << pattern << " was found in the text at index ";
+        file << BM_index;
+        file << std::endl;
+    }
+
+    // state runtime
+    file << "The runtime for BM was: " << std::fixed << std::setprecision(6) << time << std::endl;
+
+    file.close();
+}
 
 // function to output KMP results
 void String_Search::KMP_results(float time) {
