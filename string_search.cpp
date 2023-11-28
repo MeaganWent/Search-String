@@ -84,6 +84,7 @@ void String_Search::BM() {
 
 // function to run KMP string search
 void String_Search::KMP() {
+    prefix();
     
     // initialize vars for indexing
     int shift = 0;
