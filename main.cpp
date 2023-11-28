@@ -22,9 +22,6 @@ int main(int argc,char*argv[]){
   //function to get text and pattern from the file and store in Class vars
   String_Search search(text_name, pattern_name);
 
-  // function for preprocessing for KMP
-  search.prefix();
-
   // function to search string called in time function
   std::vector<float> timeStamps;
   timeStamps = search.timeFunction();
