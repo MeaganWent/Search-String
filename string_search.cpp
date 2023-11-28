@@ -148,11 +148,13 @@ void String_Search::prefix() {
 // function to get the time stamp of all the search functions and do a graph and output
 vector <float> String_Search::timeFunction(){
    unsigned long starTime, endTime, starTime_BM, endTime_BM;
-
     //call funtions
         starTime = clock();
         KMP();
         endTime = clock();
+    
+        float runtime =1.0 * (endTime - starTime) / CLOCKS_PER_SEC; //why do I need the 1.0 here?
+        total_time.push_back(runtime);
     // string search 
         // end 
         //start
