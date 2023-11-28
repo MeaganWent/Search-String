@@ -146,38 +146,48 @@ void String_Search::prefix() {
 
 
 // function to get the time stamp of all the search functions and do a graph and output
-vector <float> String_Search::timeFunction(){
-   unsigned long starTime, endTime, starTime_BM, endTime_BM;
+std::vector<float> String_Search::timeFunction(){
+    std::ofstream outFile;
+    vector<float> total_time;
+
+   unsigned long starTime, endTime;
+   outFile.open("output.txt");
+
     //call funtions
-        starTime = clock();
-        KMP();
-        endTime = clock();
-    
-        float runtime =1.0 * (endTime - starTime) / CLOCKS_PER_SEC; //why do I need the 1.0 here?
-        total_time.push_back(runtime);
+        
     // string search 
-        // end 
-        //start
+       
     //BM search
-        // end
-        starTime_BM = clock();
-        BM();
-        endTime_BM = clock();
-        //start
+    starTime = clock();
+    BM();
+    endTime = clock();
+    float BM_time = (float)(endTime - starTime) / CLOCKS_PER_SEC;
+    total_time.push_back(BM_time);
+
     //KMP search 
-    //KMP();
-        //end
+    starTime = clock();
+    KMP();
+    endTime = clock();
+    float KMP_time = (float)(endTime - starTime) / CLOCKS_PER_SEC;
+    total_time.push_back(KMP_time);
     //end point
 
     //get the runtime
-    vector<float> total_time;
-    float runtime =1.0 * (endTime - starTime) / CLOCKS_PER_SEC; //why do I need the 1.0 here?
+    
+    float runtime =1.0 * (endTime - starTime) / CLOCKS_PER_SEC; 
     total_time.push_back(runtime);
-    float BMruntime =1.0 * (endTime_BM - starTime_BM) / CLOCKS_PER_SEC;
-    total_time.push_back(BMruntime);
     //float output = 1.0 * (c_end - c_start);
-    cout << std::fixed << std::setprecision(4) << total_time[0] << " " << total_time[1] << endl;
+    //total_time.push_back(output);
+
+    //print the the comparison of the runtimes
+    outFile << "TotalBM runtime: " << std::fixed << std::setprecision(6) << BM_time << "seconds" << std::endl;
+    outFile << "KMP runtime: " << std::fixed << std::setprecision(6) << KMP_time << " seconds" << std::endl;
+    //outFile << "Total runtime: " << std::fixed << std::setprecision(6) << runtime << " seconds" << std::endl;
+    
+
+    outFile.close();
     return total_time;
+    
     
 }
 // function to output String Search results
