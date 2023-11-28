@@ -30,9 +30,10 @@ int main(int argc,char*argv[]){
   timeStamps = search.timeFunction();
 
   // functions to print results
-  search.KMP_results(timeStamps[0]);
-  search.BM_results(timeStamps[1]);
   // STRING SEARCH RESULTS HERE
+  search.BM_results(timeStamps[0]);
+  search.KMP_results(timeStamps[1]);
+  
 
 
 }
