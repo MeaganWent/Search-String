@@ -29,6 +29,7 @@ int main(int argc,char*argv[]){
   std::vector<float> timeStamps;
   timeStamps = search.timeFunction();
 
+  // functions to print results
   search.KMP_results(timeStamps[0]);
   search.BM_results(timeStamps[1]);
   // STRING SEARCH RESULTS HERE
