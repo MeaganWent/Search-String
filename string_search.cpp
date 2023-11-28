@@ -147,7 +147,7 @@ void String_Search::prefix() {
 
 // function to get the time stamp of all the search functions and do a graph and output
 vector <float> String_Search::timeFunction(){
-   unsigned long starTime, endTime;
+   unsigned long starTime, endTime, starTime_BM, endTime_BM;
 
     //call funtions
         starTime = clock();
@@ -158,9 +158,9 @@ vector <float> String_Search::timeFunction(){
         //start
     //BM search
         // end
-        starTime = clock();
+        starTime_BM = clock();
         BM();
-        endTime = clock();
+        endTime_BM = clock();
         //start
     //KMP search 
     //KMP();
@@ -171,8 +171,10 @@ vector <float> String_Search::timeFunction(){
     vector<float> total_time;
     float runtime =1.0 * (endTime - starTime) / CLOCKS_PER_SEC; //why do I need the 1.0 here?
     total_time.push_back(runtime);
+    float BMruntime =1.0 * (endTime_BM - starTime_BM) / CLOCKS_PER_SEC;
+    total_time.push_back(BMruntime);
     //float output = 1.0 * (c_end - c_start);
-    cout << std::fixed << std::setprecision(4) << total_time[0] << endl;
+    cout << std::fixed << std::setprecision(4) << total_time[0] << " " << total_time[1] << endl;
     return total_time;
     
 }

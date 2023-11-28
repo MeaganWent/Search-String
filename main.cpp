@@ -25,22 +25,13 @@ int main(int argc,char*argv[]){
   // function for preprocessing for KMP
   search.prefix();
 
-  //function to run string search
-  search.BM();
-  std::vector<float> BM_timeStamps;
-  BM_timeStamps = search.timeFunction();
-  // std::vector<int> Basic_indexes = search.Basic();
-  search.BM_results(BM_timeStamps[0]);
-
   // function to search string called in time function
   std::vector<float> timeStamps;
   timeStamps = search.timeFunction();
 
   search.KMP_results(timeStamps[0]);
-
-  // function to output running times
-
-  // function to output if the pattern was found
+  search.BM_results(timeStamps[1]);
+  // STRING SEARCH RESULTS HERE
 
 
 }
