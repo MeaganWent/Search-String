@@ -8,6 +8,7 @@
 #include <iomanip>
 
 using namespace std;
+
 //function to get text and pattern from the file
 String_Search::String_Search(std::string text_file, std::string pattern_file) {
     // store text in Class string
@@ -173,7 +174,6 @@ std::vector<float> String_Search::timeFunction(){
     //end point
 
     //get the runtime
-    
     float runtime =1.0 * (endTime - starTime) / CLOCKS_PER_SEC; 
     total_time.push_back(runtime);
     //float output = 1.0 * (c_end - c_start);
@@ -193,7 +193,6 @@ std::vector<float> String_Search::timeFunction(){
 // function to output String Search results
 
 // function to output Boyer Moore results
-
 void String_Search::BM_results(float time) {
     std::ofstream file;
 
@@ -246,5 +245,3 @@ void String_Search::KMP_results(float time) {
 
     file.close();
 }
-
-// function to output comparisons
