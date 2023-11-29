@@ -14,7 +14,7 @@ class String_Search {
   
     std::vector<int> prefix_val;
     std::vector<int> KMP_index;
-    int BM_index;
+    std::vector<int> BM_index;
 
   // public methods
   public:
