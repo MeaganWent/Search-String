@@ -53,7 +53,7 @@ String_Search::String_Search(std::string text_file, std::string pattern_file) {
     // NOT COMPLETED -- I HAVE TO ADD COMMENTS. 
 
 void String_Search::BM() {
-    this->BM_index = -1;
+    this->BM_index.push_back(-1);
     int badchar[256];
     int i; 
     for (i = 0; i < 256; i++) 
@@ -73,7 +73,7 @@ void String_Search::BM() {
         if (j < 0) 
         { 
             std::cout << "pattern occurs at shift = " <<  s << std::endl; 
-            this->BM_index = s + pattern.size(); 
+            this->BM_index.push_back(s + pattern.size()); 
             s += (s + pattern.size() < text.size())? pattern.size()-badchar[text[s + pattern.size()]] : 1; 
  
         }
@@ -204,11 +204,13 @@ void String_Search::BM_results(float time) {
     file << std::endl;
 
     // state if pattern was found or not and if so where
-    if(BM_index == -1){
+    if(BM_index.size() == 1){
         file << "The pattern " << pattern << " was not found in the text" << std::endl;
     } else {
-        file << "The pattern " << pattern << " was found in the text at index ";
-        file << BM_index;
+        file << "The pattern " << pattern << " was found in the text at index(s) ";
+        for(int i = 1; i < BM_index.size(); i++){
+            file << BM_index[i] << " ";
+        }
         file << std::endl;
     }
 

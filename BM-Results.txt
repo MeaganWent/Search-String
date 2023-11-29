@@ -1,0 +1,4 @@
+Results for the Boyer Moore string search algorithm:
+
+The pattern and was found in the text at index(s) 31 63 
+The runtime for BM was: 0.000057
