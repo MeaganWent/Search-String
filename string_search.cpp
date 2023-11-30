@@ -211,7 +211,7 @@ std::vector<float> String_Search::timeFunction(){
     //total_time.push_back(output);
 
     //print the comparison of the runtimes
-    outFile << "Basic runtime: " << std::fixed << std::setprecision(6) << runtime << " seconds" << std::endl;
+    outFile << "Basic runtime: " << std::fixed << std::setprecision(6) << Basic_time << " seconds" << std::endl;
     outFile << "BM runtime: " << std::fixed << std::setprecision(6) << BM_time << "seconds" << std::endl;
     outFile << "KMP runtime: " << std::fixed << std::setprecision(6) << KMP_time << " seconds" << std::endl;
     
