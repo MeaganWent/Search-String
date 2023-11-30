@@ -13,6 +13,7 @@ class String_Search {
     std::string pattern = "";
   
     std::vector<int> prefix_val;
+    std::vector<int> Basic_index;
     std::vector<int> KMP_index;
     std::vector<int> BM_index;
 
@@ -26,7 +27,7 @@ class String_Search {
     void prefix();
 
     //function to run string search
-    // std::vector<int> Basic();
+    void Basic();
     // function to run Boyer Moore string search
     void BM();
     // function to run KMP string search
@@ -36,6 +37,7 @@ class String_Search {
     std::vector<float> timeFunction();
 
     // function for outputting results
+    void Basic_results(float time);
     void KMP_results(float time);
     void BM_results(float time);
 };
