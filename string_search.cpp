@@ -191,7 +191,34 @@ std::vector<float> String_Search::timeFunction(){
     
     
 }
-// function to output String Search results
+// function to output Basic String Search results
+void String_Search::Basic_results(float time) {
+    std::ofstream file;
+
+    file.open("Basic-Results.txt");
+    
+    // file heading
+    file << "Results for the Basic string search algorithm:" << std::endl;
+    file << std::endl;
+
+    // state if pattern was found or not and if so where
+    if(Basic_index.size() == 0){
+        file << "The pattern " << pattern << " was not found in the text" << std::endl;
+    } else if(Basic_index.size() == 1){
+        file << "The pattern " << pattern << " was found in the text at index " << Basic_index[0] << std::endl;
+    } else {
+        file << "The pattern " << pattern << " was found in the text at indexes ";
+        for(int i = 0; i < Basic_index.size(); i++){
+            file << Basic_index[i] << " ";
+        }
+        file << std::endl;
+    }
+
+    // state runtime
+    file << "The runtime for Basic was: " << std::fixed << std::setprecision(6) << time << std::endl;
+
+    file.close();
+}
 
 // function to output Boyer Moore results
 void String_Search::BM_results(float time) {
