@@ -37,17 +37,22 @@ String_Search::String_Search(std::string text_file, std::string pattern_file) {
 
 }
 
-//function to run string search
-// PseudoCode
-// Function StringSearch::Basic(str, answer)
-    // Create vector indexes
-    // For the length of the str (i)
-        // For the length of the answer (j)
-            // If the answer at j is not equal to the str at j
-                // Break
-            // If we are at the end of the loop and never broke out
-                // Push i to vector
-    // Return vector
+//function to run basic string search
+void String_Search::Basic(){
+    bool check;
+    for(int i = 0; i < text.size(); i++){
+        check = true;
+        for(int j = 0; j < pattern.size(); j++){
+            if(pattern[j] != text[i + j]){
+                check = false;
+                break;
+            }
+        }
+        if(check == true) {
+            this->Basic_index.push_back(i);
+        }
+    }
+}
 
 // function to run Boyer Moore string search
     // NOT COMPLETED -- I HAVE TO ADD COMMENTS. 
