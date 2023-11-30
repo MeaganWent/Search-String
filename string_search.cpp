@@ -210,10 +210,10 @@ std::vector<float> String_Search::timeFunction(){
     //float output = 1.0 * (c_end - c_start);
     //total_time.push_back(output);
 
-    //print the the comparison of the runtimes
-    outFile << "TotalBM runtime: " << std::fixed << std::setprecision(6) << BM_time << "seconds" << std::endl;
+    //print the comparison of the runtimes
+    outFile << "Basic runtime: " << std::fixed << std::setprecision(6) << runtime << " seconds" << std::endl;
+    outFile << "BM runtime: " << std::fixed << std::setprecision(6) << BM_time << "seconds" << std::endl;
     outFile << "KMP runtime: " << std::fixed << std::setprecision(6) << KMP_time << " seconds" << std::endl;
-    //outFile << "Total runtime: " << std::fixed << std::setprecision(6) << runtime << " seconds" << std::endl;
     
 
     outFile.close();
