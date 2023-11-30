@@ -134,7 +134,7 @@ void String_Search::KMP() {
       
         // determines if a shift should be called from lookup or if a match was found
         if(found){
-            KMP_index.push_back(shift);
+            KMP_index.push_back(shift-1);
             pattern_idx = prefix_val[pattern_idx-1];
         } else if(text[shift] != pattern[pattern_idx] && shift < text.size()) {
             // get new index to check for the pattern
