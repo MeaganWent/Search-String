@@ -39,15 +39,20 @@ String_Search::String_Search(std::string text_file, std::string pattern_file) {
 
 //function to run basic string search
 void String_Search::Basic(){
+    // Bool var to check if our pattern does not match the text
     bool check;
+    // For loop to go over entire text and reset check to true
     for(int i = 0; i < text.size(); i++){
         check = true;
+        // For loop to compare each element in the text and pattern
+        // If they don't match eachother each iteration break out of the loop
         for(int j = 0; j < pattern.size(); j++){
             if(pattern[j] != text[i + j]){
                 check = false;
                 break;
             }
         }
+        // If check never changed, push the current text index to our vector
         if(check == true) {
             this->Basic_index.push_back(i);
         }
