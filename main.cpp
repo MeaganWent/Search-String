@@ -28,7 +28,7 @@ int main(int argc,char*argv[]){
 
   // functions to print results
   // STRING SEARCH RESULTS HERE
-  search.BM_results(timeStamps[0]);
-  search.KMP_results(timeStamps[1]);
-  //search.Basic_results(timeStamps[2]);
+  search.Basic_results(timeStamps[0]);
+  search.BM_results(timeStamps[1]);
+  search.KMP_results(timeStamps[2]);
 }
