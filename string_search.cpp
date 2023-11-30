@@ -58,7 +58,11 @@ void String_Search::Basic(){
     // NOT COMPLETED -- I HAVE TO ADD COMMENTS. 
 
 void String_Search::BM() {
+    // Initializing vector to hold indexes in which we found the pattern
     this->BM_index.push_back(-1);
+
+    // Pre-Processing for Bad Character Heuristic
+    // Geeks for Geeks source code: https://www.geeksforgeeks.org/boyer-moore-algorithm-for-pattern-searching/
     int badchar[256];
     int i; 
     for (i = 0; i < 256; i++) 
@@ -66,23 +70,34 @@ void String_Search::BM() {
     
     for (i = 0; i < pattern.size(); i++) 
         badchar[(int) pattern[i]] = i; 
-     
-    int s = 0;   
+    // End of Pre-Processing
+
+    // Shift count initialized. 
+    int s = 0; 
+    
+    // Loops through all the text file. 
     while(s <= (text.size() - pattern.size())) 
     { 
+        // Size of the pattern
         int j = pattern.size() - 1; 
- 
+
+        // Checks to see if text equals the pattern, if so, then it will check pattern with decreasing increments, if 
+        // it loops through all of the patten array, then pattern has been found
         while(j >= 0 && pattern[j] == text[s + j]) 
+            // deincrement 
             j--; 
- 
+         // if j < 0 then that mean we have found the apttern 
         if (j < 0) 
         { 
-            std::cout << "pattern occurs at shift = " <<  s << std::endl; 
+            // inserts into vector, the index of where the pattern starts 
             this->BM_index.push_back(s + pattern.size()); 
+            
+            // Continues checking for indexes 
             s += (s + pattern.size() < text.size())? pattern.size()-badchar[text[s + pattern.size()]] : 1; 
  
         }
         else
+            // Did not find pattern, moving onto next index. 
             s += std::max(1, j - badchar[text[s + j]]); 
     } 
 }
