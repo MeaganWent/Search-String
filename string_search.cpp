@@ -95,15 +95,20 @@ void String_Search::BM() {
         if (j < 0) 
         { 
             // inserts into vector, the index of where the pattern starts 
-            this->BM_index.push_back(s + pattern.size()); 
+            this->BM_index.push_back(s); 
             
             // Continues checking for indexes 
-            s += (s + pattern.size() < text.size())? pattern.size()-badchar[text[s + pattern.size()]] : 1; 
- 
+            if(s + pattern.size() < text.size()){
+                s += pattern.size()-badchar[text[s + pattern.size()]];
+            } else {
+                s += 1;
+            }
         }
-        else
+        else {
             // Did not find pattern, moving onto next index. 
+            // Max takes the greater of the two operators. 
             s += std::max(1, j - badchar[text[s + j]]); 
+        }
     } 
 }
 
