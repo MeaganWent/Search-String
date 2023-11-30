@@ -183,7 +183,12 @@ std::vector<float> String_Search::timeFunction(){
     //call funtions
         
     // string search 
-       
+    starTime = clock();
+    Basic();
+    endTime = clock();
+    float Basic_time = (float)(endTime - starTime) / CLOCKS_PER_SEC;
+    total_time.push_back(Basic_time);
+    
     //BM search
     starTime = clock();
     BM();
