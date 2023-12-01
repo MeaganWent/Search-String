@@ -310,3 +310,23 @@ void String_Search::KMP_results(float time) {
 
     file.close();
 }
+
+void String_Search::ControlF() {
+std::ofstream file;
+    file.open("ControlF.txt");
+    int Total = 0;
+    int patternEnd = pattern.size();
+        for(int i = 0; i < text.size(); i++){
+            if(KMP_index[Total] - pattern.size() + 1 == i){
+                file << "**";
+            }
+
+            if(KMP_index[Total] + 1 == i){
+                file << "**";
+                Total ++;
+            }
+
+            file << text[i];
+        }
+    file.close();
+}

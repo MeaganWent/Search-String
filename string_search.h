@@ -40,6 +40,8 @@ class String_Search {
     void Basic_results(float time);
     void KMP_results(float time);
     void BM_results(float time);
+
+    void ControlF();
 };
 
 
