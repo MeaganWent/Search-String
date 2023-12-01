@@ -179,51 +179,71 @@ void String_Search::prefix() {
 
 // function to get the time stamp of all the search functions and do a graph and output
 std::vector<float> String_Search::timeFunction(){
-    std::ofstream outFile;
-    vector<float> total_time;
+    std::vector<float> String_Search::timeFunction(){
+    // create a csv file to store the time stamps
+    std::ofstream patternOutFile("patternRuntime.csv");
+    
+    // header for the csv file
+    patternOutFile << "Comparing the runtime of Basic string search, Boyer Moore, and Knutt-Morris-Pratt runtime." << std::endl;
 
+    // create a vector to store the time stamps
+    vector<float> totalTime;
+
+    // create a unsigned long to store the time stamp
    unsigned long starTime, endTime;
-   outFile.open("output.txt");
 
     //call funtions
         
     // string search 
+    //start timer
     starTime = clock();
+    //call function
     Basic();
+    //end timer
     endTime = clock();
+    //calculate the runtime
     float Basic_time = (float)(endTime - starTime) / CLOCKS_PER_SEC;
-    total_time.push_back(Basic_time);
+    //store the time in the vector
+    totalTime.push_back(Basic_time);
     
     //BM search
+    //start timer
     starTime = clock();
+    //call function
     BM();
+    //end timer
     endTime = clock();
+    //calculate the runtime
     float BM_time = (float)(endTime - starTime) / CLOCKS_PER_SEC;
-    total_time.push_back(BM_time);
+    //store the time in the vector
+    totalTime.push_back(BM_time);
 
     //KMP search 
+    //start timer
     starTime = clock();
+    //call function
     KMP();
+    //end timer
     endTime = clock();
+    //calculate the runtime
     float KMP_time = (float)(endTime - starTime) / CLOCKS_PER_SEC;
-    total_time.push_back(KMP_time);
-    //end point
+    //store the time in the vector
+    totalTime.push_back(KMP_time);
 
-    //get the runtime
-    float runtime =1.0 * (endTime - starTime) / CLOCKS_PER_SEC; 
-    total_time.push_back(runtime);
-    //float output = 1.0 * (c_end - c_start);
-    //total_time.push_back(output);
 
-    //print the comparison of the runtimes
-    outFile << "Basic runtime: " << std::fixed << std::setprecision(6) << Basic_time << " seconds" << std::endl;
-    outFile << "BM runtime: " << std::fixed << std::setprecision(6) << BM_time << "seconds" << std::endl;
-    outFile << "KMP runtime: " << std::fixed << std::setprecision(6) << KMP_time << " seconds" << std::endl;
+    // write the text size, pattern size and time stamps to the csv file
+    patternOutFile << "Text size: " << text.size() << std::endl;
+    patternOutFile << "Pattern size: " << pattern.size() << std::endl;
+    patternOutFile << std::fixed<< std::setprecision(6) << "Basic search string runtime: "<< totalTime[0] << " seconds."<< std::endl;
+    patternOutFile << std::fixed<< std::setprecision(6) << "Boyer Moore runtime: " << totalTime [1] <<" seconds."<<std::endl; 
+    patternOutFile << std::fixed<< std::setprecision(6) << "Knuth-Morris-Pratt runtime" << totalTime[2] << " seconds." << std::endl;
     
+    //close the csv file
+    patternOutFile.close();
 
-    outFile.close();
-    return total_time;
-    
+    // return the time stamps
+    return totalTime;
+}
     
 }
 // function to output Basic String Search results
