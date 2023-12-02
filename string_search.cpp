@@ -179,7 +179,7 @@ void String_Search::prefix() {
 
 // function to get the time stamp of all the search functions and do a graph and output
 std::vector<float> String_Search::timeFunction(){
-    std::vector<float> String_Search::timeFunction(){
+    //std::vector<float> String_Search::timeFunction(){
     // create a csv file to store the time stamps
     std::ofstream patternOutFile("patternRuntime.csv");
     
@@ -245,7 +245,7 @@ std::vector<float> String_Search::timeFunction(){
     return totalTime;
 }
     
-}
+//}
 // function to output Basic String Search results
 void String_Search::Basic_results(float time) {
     std::ofstream file;
