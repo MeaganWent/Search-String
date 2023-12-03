@@ -1,6 +1,0 @@
-Comparing the runtime of Basic string search, Boyer Moore, and Knutt-Morris-Pratt runtime.
-Text size: 15316
-Pattern size: 7
-Basic search string runtime: 0.000277 seconds.
-Boyer Moore runtime: 0.000052 seconds.
-Knuth-Morris-Pratt runtime0.000347 seconds.
