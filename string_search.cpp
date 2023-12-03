@@ -35,6 +35,7 @@ String_Search::String_Search(std::string text_file, std::string pattern_file) {
     // close the file
     infile_2.close();
 
+    prefix_val.resize(pattern.length(),0);
 }
 
 //function to run basic string search
@@ -121,25 +122,18 @@ void String_Search::KMP() {
     int pattern_idx = 0;
   
     // goes through the entire text but not always by a shift of one
-    while(shift < text.size()) {
-        bool found = false;
+    while(text.size() - shift >= pattern.size() - pattern_idx) {
     
         // checks each character in the pattern to make sure all match
-        if(text[shift]==pattern[pattern_idx] && pattern_idx < pattern.size()) {
+        if(text[shift]==pattern[pattern_idx]) {
             // increment counter
             pattern_idx += 1;
             shift += 1;
         }
-
-        // end of the pattern is reached so the match was found
-        if(pattern_idx == pattern.size()){
-            found = true;
-            cout << shift << endl; //testing for runtime
-        }
       
         // determines if a shift should be called from lookup or if a match was found
-        if(found){
-            KMP_index.push_back(shift-1);
+        if(pattern_idx == pattern.size()){
+            KMP_index.push_back(shift-pattern_idx);
             pattern_idx = prefix_val[pattern_idx-1];
         } else if(text[shift] != pattern[pattern_idx] && shift < text.size()) {
             // get new index to check for the pattern
@@ -157,21 +151,25 @@ void String_Search::KMP() {
 void String_Search::prefix() {
     
     // initialize vector of length pattern to 0's and set length to 0
-    prefix_val.resize(pattern.length(),0);
     int length = 0;
-    
+    int i = 1;
+
     // goes through the pattern to find the number of shifts possible to skip
-    for(int i = 1; i < pattern.length();i++){
+    while(i < pattern.length()){
 
         // a shift is possible
         if(pattern[length] == pattern[i]) {
             length += 1;
             prefix_val[i] = length;
+            i += 1;
 
         // shift is not possible
-        }else if(pattern[length] != pattern[i] && length != 0) {
-            length = prefix_val[length - 1];
-            i -= 1;
+        }else {
+            if(length != 0) {
+                length = prefix_val[length - 1];
+            } else {
+                i++;
+            } 
         }
     }
 }

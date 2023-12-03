@@ -1,0 +1,4 @@
+Results for the Basic string search algorithm:
+
+The pattern strings was not found in the text
+The runtime for Basic was: 0.000277
