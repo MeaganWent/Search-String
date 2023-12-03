@@ -177,12 +177,14 @@ void String_Search::prefix() {
 
 // function to get the time stamp of all the search functions and do a graph and output
 std::vector<float> String_Search::timeFunction(){
-    //std::vector<float> String_Search::timeFunction(){
-    // create a csv file to store the time stamps
-    std::ofstream patternOutFile("patternRuntime.csv");
+    // create a txt file to store the time stamps
+    std::ofstream outFile;
+
+    outFile.open("Runtime.txt");
     
-    // header for the csv file
-    patternOutFile << "Comparing the runtime of Basic string search, Boyer Moore, and Knutt-Morris-Pratt runtime." << std::endl;
+    // file header
+    outFile << "Comparing Runtime Efficiency: Basic String Search vs. Boyer-Moore vs. Knuth-Morris-Pratt Algorithms" << std::endl;
+    outFile << std::endl;
 
     // create a vector to store the time stamps
     vector<float> totalTime;
@@ -229,21 +231,20 @@ std::vector<float> String_Search::timeFunction(){
     totalTime.push_back(KMP_time);
 
 
-    // write the text size, pattern size and time stamps to the csv file
-    patternOutFile << "Text size: " << text.size() << std::endl;
-    patternOutFile << "Pattern size: " << pattern.size() << std::endl;
-    patternOutFile << std::fixed<< std::setprecision(6) << "Basic search string runtime: "<< totalTime[0] << " seconds."<< std::endl;
-    patternOutFile << std::fixed<< std::setprecision(6) << "Boyer Moore runtime: " << totalTime [1] <<" seconds."<<std::endl; 
-    patternOutFile << std::fixed<< std::setprecision(6) << "Knuth-Morris-Pratt runtime" << totalTime[2] << " seconds." << std::endl;
+    // write the text size, pattern size and time stamps to the txt file
+    outFile << "Text size: " << text.size() << std::endl;
+    outFile << "Pattern size: " << pattern.size() << std::endl;
+    outFile << std::fixed<< std::setprecision(6) << "Basic search string runtime: "<< totalTime[0] << " seconds."<< std::endl;
+    outFile << std::fixed<< std::setprecision(6) << "Boyer Moore runtime: " << totalTime [1] <<" seconds."<<std::endl; 
+    outFile << std::fixed<< std::setprecision(6) << "Knuth-Morris-Pratt runtime: " << totalTime[2] << " seconds." << std::endl;
     
-    //close the csv file
-    patternOutFile.close();
+    //close the txt file
+    outFile.close();
 
     // return the time stamps
     return totalTime;
 }
-    
-//}
+
 // function to output Basic String Search results
 void String_Search::Basic_results(float time) {
     std::ofstream file;
