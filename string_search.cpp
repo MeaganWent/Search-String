@@ -113,6 +113,9 @@ void String_Search::BM() {
     } 
 }
 
+// used https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/ to check to make sure algorithm achually was KMP
+// no code was directly copied but used the link to make sure seach and prefix performed as a KMP algorithm should, citing as source for KMP and prefix
+
 // function to run KMP string search
 void String_Search::KMP() {
     prefix();
