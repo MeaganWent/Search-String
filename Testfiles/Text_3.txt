@@ -1,0 +1,1 @@
+Test text for cs term project basic string search, Boyer Moore, and Knuth Morris Pratt.
