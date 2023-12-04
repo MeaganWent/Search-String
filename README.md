@@ -10,7 +10,7 @@ The steps to use and run the program are as follows:
 
         g++ -std=c++11 main.cpp string_search.cpp -o string_search
     
-  - Run the executable file with text.txt and pattern.txt as arguments
+  - Run the executable file with /textfile/text_1.txt and /textfile/pattern_1.txt as arguments
 
         ./string_search text.txt pattern.txt
   - Output files:
