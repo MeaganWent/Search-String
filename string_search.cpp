@@ -61,7 +61,6 @@ void String_Search::Basic(){
 }
 
 // function to run Boyer Moore string search
-    // NOT COMPLETED -- I HAVE TO ADD COMMENTS. 
 
 void String_Search::BM() {
     // Initializing vector to hold indexes in which we found the pattern
