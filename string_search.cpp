@@ -336,11 +336,11 @@ std::ofstream file;
     int Total = 0;
     int patternEnd = pattern.size();
         for(int i = 0; i < text.size(); i++){
-            if(KMP_index[Total] - pattern.size() + 1 == i){
+            if(KMP_index[Total] == i){
                 file << "**";
             }
 
-            if(KMP_index[Total] + 1 == i){
+            if(KMP_index[Total]+ pattern.size() == i){
                 file << "**";
                 Total ++;
             }
