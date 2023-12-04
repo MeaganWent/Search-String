@@ -1,4 +1,5 @@
-This C++11 program implements two efficient string-searching algorithms, Boyer-Moore and Knuth-Morris-Pratt, to determine whether a given pattern occurs in a given text or not. This program also measures and compares the runtimes of these algorithms with a naive string-searching algorithm. 
+This C++11 program implements two efficient string-searching algorithms, Boyer-Moore and Knuth-Morris-Pratt, to determine whether a given pattern occurs in a given text or not. This program also measures and compares the runtimes of these algorithms with a naive string-searching algorithm. In order for the Boyer-Moore functionality to work, the text file as to contain less than 256 different elements or a text file within ACSII stipulations. 
+
 Our implementation of these string searching algorithms is to create a Ctrl+F function which will be seen in the ControlF output file.
 
 The steps to use and run the program are as follows:
