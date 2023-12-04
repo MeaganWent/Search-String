@@ -251,7 +251,7 @@ void String_Search::Basic_results(float time) {
 
     file.open("Basic-Results.txt");
     
-    // file heading
+    // file headingAmerican Standard Code for Information Interchange
     file << "Results for the Basic string search algorithm:" << std::endl;
     file << std::endl;
 
@@ -333,8 +333,9 @@ void String_Search::KMP_results(float time) {
 void String_Search::ControlF() {
 std::ofstream file;
     file.open("ControlF.txt");
-    int Total = 0;
-    int patternEnd = pattern.size();
+    if(KMP_index.size() > 0 ){
+        int Total = 0;
+        int patternEnd = pattern.size();
         for(int i = 0; i < text.size(); i++){
             if(KMP_index[Total] == i){
                 file << "**";
@@ -347,5 +348,11 @@ std::ofstream file;
 
             file << text[i];
         }
+    } else {
+        for(int i = 0; i < text.size(); i++){
+            file << text[i];
+        }
+    }
+
     file.close();
 }
